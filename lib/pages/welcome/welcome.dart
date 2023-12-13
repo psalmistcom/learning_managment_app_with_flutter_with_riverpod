@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_with_bloc/pages/welcome/widgets.dart';
 
 class Welcome extends StatelessWidget {
-  const Welcome({super.key});
+  Welcome({super.key});
+
+  final PageController controller = PageController();
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +41,7 @@ class Welcome extends StatelessWidget {
           const Positioned(
             left: 20,
             bottom: 100,
-            child: Text("Widget One"),
+            child: Text(""),
           ),
         ],
       ),
