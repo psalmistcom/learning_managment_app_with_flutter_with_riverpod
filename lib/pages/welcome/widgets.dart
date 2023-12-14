@@ -3,10 +3,11 @@ import 'package:flutter_with_bloc/common/utils/app_colors.dart';
 import 'package:flutter_with_bloc/common/widgets/app_shadows.dart';
 import 'package:flutter_with_bloc/common/widgets/text_widgets.dart';
 
-Widget appOnboardingPage(
+Widget appOnboardingPage(PageController controller,
     {String imagePath = "assets/images/reading.png",
     String title = "",
-    String subTitle = ""}) {
+    String subTitle = "",
+    index = 0}) {
   return Column(
     children: [
       Image.asset(
@@ -22,14 +23,22 @@ Widget appOnboardingPage(
         padding: const EdgeInsets.symmetric(horizontal: 30),
         child: text16Normal(text: subTitle),
       ),
-      _nextButton(),
+      _nextButton(index, controller),
     ],
   );
 }
 
-Widget _nextButton() {
+Widget _nextButton(int index, PageController controller) {
   return GestureDetector(
-    onTap: () {},
+    onTap: () {
+      if (index < 3) {
+        controller.animateToPage(
+          index,
+          duration: const Duration(microseconds: 1800),
+          curve: Curves.easeIn,
+        );
+      }
+    },
     child: Container(
       width: 325,
       height: 50,
