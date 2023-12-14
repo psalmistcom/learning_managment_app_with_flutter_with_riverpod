@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+// import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_with_bloc/common/utils/app_colors.dart';
 import 'package:flutter_with_bloc/common/widgets/app_shadows.dart';
 import 'package:flutter_with_bloc/common/widgets/text_widgets.dart';
@@ -35,7 +36,7 @@ Widget _nextButton(int index, PageController controller) {
         controller.animateToPage(
           index,
           duration: const Duration(microseconds: 1800),
-          curve: Curves.easeIn,
+          curve: Curves.linear,
         );
       }
     },
